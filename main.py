@@ -18,7 +18,9 @@ import os
 
 EMOJI = "\U0001F604"  # 😄
 
-OUTPUT_PATH = "/output/entry.txt"
+# The platform runs the entry with MAKEFUN_OUTPUT_DIR set; fall back to
+# /output when run standalone. The file written is entry.txt either way.
+OUTPUT_PATH = os.path.join(os.environ.get("MAKEFUN_OUTPUT_DIR", "/output"), "entry.txt")
 
 
 def main() -> None:
